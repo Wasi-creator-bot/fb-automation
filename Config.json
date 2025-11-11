@@ -1,0 +1,8 @@
+{
+  "groups": ["1297679682137901"],  // Group IDs to automate
+  "likePosts": true,
+  "commentPosts": true,
+  "comments": ["Nice post!", "Great content!", "👍"], // comments to choose randomly
+  "checkInterval": 60,   // in seconds
+  "maxActionsPerHour": 20
+}
