@@ -9,8 +9,7 @@
   "author": "Wasi",
   "license": "MIT",
   "dependencies": {
-  "puppeteer": "^24.15.0",
-  "fs-extra": "^11.1.1"
+    "puppeteer": "^25.8.0",
+    "fs-extra": "^11.1.1"
   }
 }
-
