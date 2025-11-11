@@ -1,0 +1,33 @@
+name: Facebook Automation
+
+on:
+  schedule:
+    - cron: '0 * * * *'   # runs every hour
+  workflow_dispatch:        # manual trigger
+
+jobs:
+  run-fb-automation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Chrome dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libnss3 libatk-bridge2.0-0 libxss1 libgtk-3-0 libasound2 xvfb
+
+      - name: Create appstate.json from secret
+        run: echo "${{ secrets.FB_APPSTATE }}" > appstate.json
+
+      - name: Run Automation Script
+        run: xvfb-run --auto-servernum -- npm start
